@@ -165,7 +165,7 @@ export default class Tracker {
   static options(model) {
     let envConfig = this.envConfig(model);
     let modelConfig = this.modelConfig(model);
-    let opts = assign({}, defaultOpts, envConfig, modelConfig);
+    let opts = Object.assign(({}, defaultOpts, envConfig, modelConfig);
 
     let unknownOpts = Object.keys(opts).filter((v) => !knownTrackerOpts.includes(v));
     Ember.assert(`[ember-data-change-tracker] changeTracker options can have
