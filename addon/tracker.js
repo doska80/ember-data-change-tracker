@@ -163,11 +163,12 @@ export default class Tracker {
    * @returns {*}
    */
   static options(model) {
-    let envConfig = this.envConfig(model);
-    let modelConfig = this.modelConfig(model);
-    let opts = Object.assign(({}, defaultOpts, envConfig, modelConfig));
+    const envConfig = this.envConfig(model);
+    const modelConfig = this.modelConfig(model);
 
-    let unknownOpts = Object.keys(opts).filter((v) => !knownTrackerOpts.includes(v));
+    const opts = Object.assign(({}, defaultOpts, envConfig, modelConfig));
+
+    const unknownOpts = Object.keys(opts).filter((v) => !knownTrackerOpts.includes(v));
     Ember.assert(`[ember-data-change-tracker] changeTracker options can have
       'only', 'except' , 'auto', 'enableIsDirty' or 'trackHasMany' but you are declaring: ${unknownOpts}`,
       Ember.isEmpty(unknownOpts)
